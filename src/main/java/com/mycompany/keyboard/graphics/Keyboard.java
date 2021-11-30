@@ -52,6 +52,7 @@ public class Keyboard extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(250, 250, 250));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton20.setBackground(new java.awt.Color(0, 0, 0));
