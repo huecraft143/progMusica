@@ -158,7 +158,8 @@ public class Keyboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton21ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+        int a = getjComboBoxItem();
+        System.out.println("Questo è un " + jButton4.getText() + " della " + a + " ottava");
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
@@ -169,6 +170,9 @@ public class Keyboard extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton28ActionPerformed
 
+    private int getjComboBoxItem(){
+        return Integer.parseInt((String) jComboBox1.getSelectedItem());     //Casto l'oggetto da Object a 
+    }
     /**
      * @param args the command line arguments
      */
