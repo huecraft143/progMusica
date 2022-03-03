@@ -69,16 +69,32 @@ public class Note {
     
     private final ottava oct;
     
-    private int pc, cpc, br, nc; //pitch class, name class, binomial repr 
+    private final String note_str;
+    
+    private final int pc, nc; //pitch class, name class, binomial repr 
+    
+    private int cpc, br;
     
     //Costruttore per il pianoforte, setto pitch class e name class
+    //Devo cambiare da int a String?
     public Note(String note, int duration, int ott) {
         dur = durata.values()[duration];    //Qui tramite indicizzazione
         oct = ottava.values()[ott];
         pc = Integer.parseInt(pitch_class.get(note));
         nc = Integer.parseInt(name_class.get(note));
-        
+        note_str = note;
     }
+    
+    //Costruttore Nota Vuota
+    public Note(){
+        pc = -1;
+        dur = durata.INTERO;
+        oct = ottava.CINQUE;
+        note_str = "";
+        nc = -1;
+    }
+    
+    //Getters
     
     public int getpitchClass(){
         return pc;
@@ -92,4 +108,12 @@ public class Note {
         return (int)(oct.ordinal() * 12) + pc;
     }
     
+    public String getNote(){
+        return note_str;
+    }
+    
+    // Controlli booleani
+    public boolean isNotaVuota(){
+        return pc == -1 && dur == durata.INTERO && oct == ottava.CINQUE && note_str.equals("") && nc == -1;
+    }
 }
