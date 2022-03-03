@@ -55,6 +55,7 @@ public class Keyboard extends javax.swing.JFrame {
         jTextField15 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jButton20 = new javax.swing.JButton();
         jButton21 = new javax.swing.JButton();
@@ -145,6 +146,14 @@ public class Keyboard extends javax.swing.JFrame {
         jLabel13.setFont(new java.awt.Font("Helvetica Neue", 1, 30)); // NOI18N
         jLabel13.setText("PRIMA NOTA");
         jDialog1.getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 240, 50));
+
+        jButton2.setText("ESEGUI");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jDialog1.getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, -1, -1));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("KeyboardInterface");
@@ -514,8 +523,13 @@ public class Keyboard extends javax.swing.JFrame {
 
     private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed
 
-        jTextField11.setText(jTextField12.getText());
     }//GEN-LAST:event_jTextField12ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        nota1.setNote(jTextField12.getText());
+        jTextField11.setText(Integer.toString(nota1.getpitchClass()));
+        jTextField10.setText(Integer.toString(nota1.getnameClass()));
+    }//GEN-LAST:event_jButton2ActionPerformed
     
     private int checkingStatusOfNotes(){
         if(nota1.isNotaVuota()){
@@ -573,6 +587,7 @@ public class Keyboard extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton20;
     private javax.swing.JButton jButton21;
     private javax.swing.JButton jButton22;

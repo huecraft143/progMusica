@@ -207,16 +207,17 @@ public class Note {
     }
     
     
+    //C'è effettivamente qualcosa di final?
     
     private final durata dur;
     
     private final ottava oct;
     
-    private final String note_str;
-    
-    private final int pc, nc; //pitch class, name class, binomial repr 
+    private int pc, nc; //pitch class, name class 
     
     private int cpc, br;
+    
+     private String note_str;
     
     //Costruttore per il pianoforte, setto pitch class e name class
     //Devo cambiare da int a String?
@@ -236,7 +237,7 @@ public class Note {
         note_str = "";
         nc = -1;
     }
-    
+        
     //Getters
     
     public int getpitchClass(){
@@ -258,5 +259,29 @@ public class Note {
     // Controlli booleani
     public boolean isNotaVuota(){
         return pc == -1 && dur == durata.INTERO && oct == ottava.CINQUE && note_str.equals("") && nc == -1;
+    }
+    
+    //Prendo un dict a caso tanto ci sono tutte
+    public boolean isNoteValid(String nota){
+        return pitch_class.containsKey(nota);
+    }
+    
+    //Setters
+    public void setNc(String nota){
+        if(isNoteValid(nota))
+            nc = Integer.parseInt(name_class.get(nota));
+    }
+    
+    public void setPc(String nota){
+        if(isNoteValid(nota))
+            pc = Integer.parseInt(pitch_class.get(nota));
+    }
+    
+    public void setNote(String nota){
+        if(isNoteValid(nota)){
+            note_str = nota;
+            setPc(nota);
+            setNc(nota);
+        }
     }
 }
