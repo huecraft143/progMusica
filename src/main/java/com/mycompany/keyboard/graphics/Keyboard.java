@@ -102,6 +102,12 @@ public class Keyboard extends javax.swing.JFrame {
         jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
         jPanel2.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, 80, -1));
         jPanel2.add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, 80, -1));
+
+        jTextField12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField12ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 80, -1));
 
         jDialog1.getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 230, 170));
@@ -505,6 +511,11 @@ public class Keyboard extends javax.swing.JFrame {
                 break;
         }
     }//GEN-LAST:event_jButton20ActionPerformed
+
+    private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed
+
+        jTextField11.setText(jTextField12.getText());
+    }//GEN-LAST:event_jTextField12ActionPerformed
     
     private int checkingStatusOfNotes(){
         if(nota1.isNotaVuota()){
