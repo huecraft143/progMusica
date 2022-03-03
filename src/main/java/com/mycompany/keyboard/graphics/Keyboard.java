@@ -156,6 +156,11 @@ public class Keyboard extends javax.swing.JFrame {
         jButton20.setText("Bb");
         jButton20.setToolTipText("");
         jButton20.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton20ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton20, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 0, 40, 130));
 
         jButton21.setBackground(new java.awt.Color(0, 0, 0));
@@ -174,18 +179,33 @@ public class Keyboard extends javax.swing.JFrame {
         jButton22.setText("Eb");
         jButton22.setToolTipText("");
         jButton22.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton22.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton22ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton22, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 0, 40, 130));
 
         jButton23.setBackground(new java.awt.Color(0, 0, 0));
         jButton23.setText("Gb");
         jButton23.setToolTipText("");
         jButton23.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton23.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton23ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton23, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, 40, 130));
 
         jButton24.setBackground(new java.awt.Color(0, 0, 0));
         jButton24.setText("Ab");
         jButton24.setToolTipText("");
         jButton24.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton24.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton24ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton24, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, 40, 130));
 
         jButton3.setText("B");
@@ -206,11 +226,21 @@ public class Keyboard extends javax.swing.JFrame {
         jButton25.setText("D");
         jButton25.setToolTipText("");
         jButton25.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton25.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton25ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton25, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, 50, 210));
 
         jButton26.setText("E");
         jButton26.setToolTipText("");
         jButton26.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton26.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton26ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton26, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, 50, 210));
 
         jButton27.setText("F");
@@ -236,6 +266,11 @@ public class Keyboard extends javax.swing.JFrame {
         jButton29.setText("A");
         jButton29.setToolTipText("");
         jButton29.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton29.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton29ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton29, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 0, 50, 210));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 480, 260));
@@ -276,7 +311,18 @@ public class Keyboard extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
-        // TODO add your handling code here:
+        switch (this.checkingStatusOfNotes()) {
+            case 0:
+                nota1 = new Note(jButton21.getText(), getjComboBoxItemDur(), getjComboBoxItemOctave());
+                break;
+            case 1:
+                nota2 = new Note(jButton21.getText(), getjComboBoxItemDur(), getjComboBoxItemOctave());
+                break;
+            case 2:
+                nota1 = nota2;
+                nota2 = new Note(jButton21.getText(), getjComboBoxItemDur(), getjComboBoxItemOctave());
+                break;
+        }
     }//GEN-LAST:event_jButton21ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -295,11 +341,33 @@ public class Keyboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
-        // TODO add your handling code here:
+        switch (this.checkingStatusOfNotes()) {
+            case 0:
+                nota1 = new Note(jButton27.getText(), getjComboBoxItemDur(), getjComboBoxItemOctave());
+                break;
+            case 1:
+                nota2 = new Note(jButton27.getText(), getjComboBoxItemDur(), getjComboBoxItemOctave());
+                break;
+            case 2:
+                nota1 = nota2;
+                nota2 = new Note(jButton27.getText(), getjComboBoxItemDur(), getjComboBoxItemOctave());
+                break;
+        }
     }//GEN-LAST:event_jButton27ActionPerformed
 
     private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
-        // TODO add your handling code here:
+        switch (this.checkingStatusOfNotes()) {
+            case 0:
+                nota1 = new Note(jButton28.getText(), getjComboBoxItemDur(), getjComboBoxItemOctave());
+                break;
+            case 1:
+                nota2 = new Note(jButton28.getText(), getjComboBoxItemDur(), getjComboBoxItemOctave());
+                break;
+            case 2:
+                nota1 = nota2;
+                nota2 = new Note(jButton28.getText(), getjComboBoxItemDur(), getjComboBoxItemOctave());
+                break;
+        }
     }//GEN-LAST:event_jButton28ActionPerformed
 
     private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
@@ -332,6 +400,111 @@ public class Keyboard extends javax.swing.JFrame {
                 jTextField15.setText(String.valueOf(nota2.getnameClass()));
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
+        switch (this.checkingStatusOfNotes()) {
+            case 0:
+                nota1 = new Note(jButton25.getText(), getjComboBoxItemDur(), getjComboBoxItemOctave());
+                break;
+            case 1:
+                nota2 = new Note(jButton25.getText(), getjComboBoxItemDur(), getjComboBoxItemOctave());
+                break;
+            case 2:
+                nota1 = nota2;
+                nota2 = new Note(jButton25.getText(), getjComboBoxItemDur(), getjComboBoxItemOctave());
+                break;
+        }
+    }//GEN-LAST:event_jButton25ActionPerformed
+
+    private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
+        switch (this.checkingStatusOfNotes()) {
+            case 0:
+                nota1 = new Note(jButton22.getText(), getjComboBoxItemDur(), getjComboBoxItemOctave());
+                break;
+            case 1:
+                nota2 = new Note(jButton22.getText(), getjComboBoxItemDur(), getjComboBoxItemOctave());
+                break;
+            case 2:
+                nota1 = nota2;
+                nota2 = new Note(jButton22.getText(), getjComboBoxItemDur(), getjComboBoxItemOctave());
+                break;
+        }
+    }//GEN-LAST:event_jButton22ActionPerformed
+
+    private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton26ActionPerformed
+        switch (this.checkingStatusOfNotes()) {
+            case 0:
+                nota1 = new Note(jButton26.getText(), getjComboBoxItemDur(), getjComboBoxItemOctave());
+                break;
+            case 1:
+                nota2 = new Note(jButton26.getText(), getjComboBoxItemDur(), getjComboBoxItemOctave());
+                break;
+            case 2:
+                nota1 = nota2;
+                nota2 = new Note(jButton26.getText(), getjComboBoxItemDur(), getjComboBoxItemOctave());
+                break;
+        }
+    }//GEN-LAST:event_jButton26ActionPerformed
+
+    private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
+        switch (this.checkingStatusOfNotes()) {
+            case 0:
+                nota1 = new Note(jButton23.getText(), getjComboBoxItemDur(), getjComboBoxItemOctave());
+                break;
+            case 1:
+                nota2 = new Note(jButton23.getText(), getjComboBoxItemDur(), getjComboBoxItemOctave());
+                break;
+            case 2:
+                nota1 = nota2;
+                nota2 = new Note(jButton23.getText(), getjComboBoxItemDur(), getjComboBoxItemOctave());
+                break;
+        }
+    }//GEN-LAST:event_jButton23ActionPerformed
+
+    private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
+        switch (this.checkingStatusOfNotes()) {
+            case 0:
+                nota1 = new Note(jButton24.getText(), getjComboBoxItemDur(), getjComboBoxItemOctave());
+                break;
+            case 1:
+                nota2 = new Note(jButton24.getText(), getjComboBoxItemDur(), getjComboBoxItemOctave());
+                break;
+            case 2:
+                nota1 = nota2;
+                nota2 = new Note(jButton24.getText(), getjComboBoxItemDur(), getjComboBoxItemOctave());
+                break;
+        }
+    }//GEN-LAST:event_jButton24ActionPerformed
+
+    private void jButton29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton29ActionPerformed
+        switch (this.checkingStatusOfNotes()) {
+            case 0:
+                nota1 = new Note(jButton29.getText(), getjComboBoxItemDur(), getjComboBoxItemOctave());
+                break;
+            case 1:
+                nota2 = new Note(jButton29.getText(), getjComboBoxItemDur(), getjComboBoxItemOctave());
+                break;
+            case 2:
+                nota1 = nota2;
+                nota2 = new Note(jButton29.getText(), getjComboBoxItemDur(), getjComboBoxItemOctave());
+                break;
+        }
+    }//GEN-LAST:event_jButton29ActionPerformed
+
+    private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
+        switch (this.checkingStatusOfNotes()) {
+            case 0:
+                nota1 = new Note(jButton20.getText(), getjComboBoxItemDur(), getjComboBoxItemOctave());
+                break;
+            case 1:
+                nota2 = new Note(jButton20.getText(), getjComboBoxItemDur(), getjComboBoxItemOctave());
+                break;
+            case 2:
+                nota1 = nota2;
+                nota2 = new Note(jButton20.getText(), getjComboBoxItemDur(), getjComboBoxItemOctave());
+                break;
+        }
+    }//GEN-LAST:event_jButton20ActionPerformed
     
     private int checkingStatusOfNotes(){
         if(nota1.isNotaVuota()){
