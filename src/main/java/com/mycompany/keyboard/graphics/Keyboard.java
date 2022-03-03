@@ -4,13 +4,17 @@
  * and open the template in the editor.
  */
 package com.mycompany.keyboard.graphics;
+import com.mycompany.keyboard.utils.Note;
 
 /**
  *
  * @author mattiapalano
  */
 public class Keyboard extends javax.swing.JFrame {
-
+    
+    private Note nota1;
+    private Note nota2;
+    
     /**
      * Creates new form Keyboard
      */
@@ -27,6 +31,7 @@ public class Keyboard extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jFrame1 = new javax.swing.JFrame();
         jPanel1 = new javax.swing.JPanel();
         jButton20 = new javax.swing.JButton();
         jButton21 = new javax.swing.JButton();
@@ -41,9 +46,10 @@ public class Keyboard extends javax.swing.JFrame {
         jButton28 = new javax.swing.JButton();
         jButton29 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jLabel3 = new javax.swing.JLabel();
         jComboBox3 = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
+        jComboBox4 = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("KeyboardInterface");
@@ -58,14 +64,14 @@ public class Keyboard extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton20.setBackground(new java.awt.Color(0, 0, 0));
-        jButton20.setForeground(new java.awt.Color(255, 255, 255));
+        jButton20.setText("Bb");
         jButton20.setToolTipText("");
         jButton20.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jButton20, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 0, 40, 130));
 
         jButton21.setBackground(new java.awt.Color(0, 0, 0));
         jButton21.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
-        jButton21.setForeground(new java.awt.Color(255, 255, 255));
+        jButton21.setText("Db");
         jButton21.setToolTipText("");
         jButton21.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton21.addActionListener(new java.awt.event.ActionListener() {
@@ -76,19 +82,19 @@ public class Keyboard extends javax.swing.JFrame {
         jPanel1.add(jButton21, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 40, 130));
 
         jButton22.setBackground(new java.awt.Color(0, 0, 0));
-        jButton22.setForeground(new java.awt.Color(255, 255, 255));
+        jButton22.setText("Eb");
         jButton22.setToolTipText("");
         jButton22.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jButton22, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 0, 40, 130));
 
         jButton23.setBackground(new java.awt.Color(0, 0, 0));
-        jButton23.setForeground(new java.awt.Color(255, 255, 255));
+        jButton23.setText("Gb");
         jButton23.setToolTipText("");
         jButton23.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jButton23, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, 40, 130));
 
         jButton24.setBackground(new java.awt.Color(0, 0, 0));
-        jButton24.setForeground(new java.awt.Color(255, 255, 255));
+        jButton24.setText("Ab");
         jButton24.setToolTipText("");
         jButton24.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jButton24, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, 40, 130));
@@ -143,26 +149,39 @@ public class Keyboard extends javax.swing.JFrame {
         jButton29.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jButton29, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 0, 50, 210));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 480, 260));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 480, 260));
 
-        jLabel1.setText("Inserisci ottava");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, -1, -1));
+        jLabel1.setText("Inserisci durata");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, -1, -1));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2" }));
-        jComboBox2.setPreferredSize(new java.awt.Dimension(73, 21));
-        getContentPane().add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, -1, -1));
-
-        jLabel3.setText("Quante note devi inserire?");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, -1, -1));
-
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8" }));
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "INTERO", "META", "QUARTO", "OTTAVO", "SEDICESIMO", "TRENTADUESIMO", "SESSANTAQUATTRESIMO" }));
         jComboBox3.setPreferredSize(new java.awt.Dimension(73, 21));
         jComboBox3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 60, -1, -1));
+        getContentPane().add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 80, 120, -1));
+
+        jLabel2.setText("Inserisci ottava");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, -1, -1));
+
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8" }));
+        jComboBox4.setPreferredSize(new java.awt.Dimension(73, 21));
+        jComboBox4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox4ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, 120, -1));
+
+        jButton1.setText("ESEGUI");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 480, 120, 50));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -172,8 +191,8 @@ public class Keyboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton21ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        int a = getjComboBoxItem();
-        System.out.println("Questo è un " + jButton4.getText() + " della " + a + " ottava");
+        //Creo un oggetto nota specifico (per ogni bottone)
+        nota1 = new Note(jButton4.getText(), getjComboBoxItemDur(), getjComboBoxItemOctave());
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
@@ -188,8 +207,20 @@ public class Keyboard extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox3ActionPerformed
 
-    private int getjComboBoxItem(){
-        return Integer.parseInt((String) jComboBox3.getSelectedItem());     //Casto l'oggetto da Object a 
+    private void jComboBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox4ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        jPanel1.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private int getjComboBoxItemOctave(){
+        return Integer.parseInt((String) jComboBox4.getSelectedItem()); 
+    }
+    
+    private int getjComboBoxItemDur(){
+        return jComboBox3.getSelectedIndex();
     }
     /**
      * @param args the command line arguments
@@ -227,6 +258,7 @@ public class Keyboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton20;
     private javax.swing.JButton jButton21;
     private javax.swing.JButton jButton22;
@@ -239,10 +271,11 @@ public class Keyboard extends javax.swing.JFrame {
     private javax.swing.JButton jButton29;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JComboBox<String> jComboBox4;
+    private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
