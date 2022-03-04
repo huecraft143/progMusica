@@ -291,21 +291,21 @@ public class Note {
     
     public void setNote(String nota){
         if(isNoteValid(nota)){
-            note_str = nota;
             setPcNote(nota);
             setNcNote(nota);
+            note_str = nota;
         }
     }
     
     public void setPc(String pc){
         if(isPcValid(pc)){
-            setNote(this.getNoteBr(nc, Integer.parseInt(pc)));
+            this.pc = Integer.parseInt(pc);
         }
     }
     
     public void setNc(String nc){
         if(isNcValid(nc)){
-            setNote(this.getNoteBr(Integer.parseInt(nc), pc));
+            this.nc = Integer.parseInt(nc);
         }
     }
     

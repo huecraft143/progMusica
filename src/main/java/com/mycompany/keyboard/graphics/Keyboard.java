@@ -569,12 +569,14 @@ public class Keyboard extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
             nota1.setPc(jTextField11.getText());
             nota1.setNc(jTextField10.getText());
+            nota1.setNoteBr(nota1.getnameClass(), nota1.getpitchClass());
             jTextField12.setText(nota1.getNote());
             jTextField11.setText(String.valueOf(nota1.getpitchClass()));
             jTextField10.setText(String.valueOf(nota1.getnameClass()));
             //nota 2
             nota2.setPc(jTextField13.getText());
-            nota1.setNc(jTextField9.getText());
+            nota2.setNc(jTextField9.getText());
+            nota2.setNoteBr(nota2.getnameClass(), nota2.getpitchClass());
             jTextField14.setText(nota2.getNote());
             jTextField13.setText(String.valueOf(nota2.getpitchClass()));
             jTextField9.setText(String.valueOf(nota2.getnameClass()));
