@@ -5,8 +5,6 @@
  */
 package com.mycompany.keyboard.graphics;
 import com.mycompany.keyboard.utils.Note;
-import java.util.ArrayList;
-import java.util.List;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
