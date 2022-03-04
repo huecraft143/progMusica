@@ -15,11 +15,11 @@ import javax.swing.event.DocumentListener;
  * @author mattiapalano
  */
 public class Keyboard extends javax.swing.JFrame {
-    
+
     //Inizializzo a nota vuota
     private Note nota1 = new Note();
     private Note nota2 = new Note();
-    
+
     /**
      * Creates new form Keyboard
      */
@@ -104,6 +104,12 @@ public class Keyboard extends javax.swing.JFrame {
         jLabel8.setText("Name Class");
         jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
         jPanel2.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, 80, -1));
+
+        jTextField11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField11ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, 80, -1));
 
         jTextField12.addActionListener(new java.awt.event.ActionListener() {
@@ -155,6 +161,24 @@ public class Keyboard extends javax.swing.JFrame {
         jPanel3.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, 80, -1));
         jPanel3.add(jTextField13, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, 80, -1));
         jPanel3.add(jTextField14, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 80, -1));
+        jTextField14.getDocument().addDocumentListener(new DocumentListener() {
+            public void changedUpdate(DocumentEvent e) {
+                warn();
+            }
+            public void removeUpdate(DocumentEvent e) {
+                warn();
+            }
+            public void insertUpdate(DocumentEvent e) {
+                warn();
+            }
+
+            public void warn(){
+                nota2.setNote(jTextField14.getText());
+                jTextField13.setText(Integer.toString(nota2.getpitchClass()));
+                jTextField9.setText(Integer.toString(nota2.getnameClass()));
+            }
+
+        });
         jPanel3.add(jTextField15, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 80, -1));
 
         jDialog1.getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 60, 260, 170));
@@ -414,15 +438,11 @@ public class Keyboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        jDialog1.setVisible(true);
         switch(this.checkingStatusOfNotes()){
             case 0:
                 break;
             case 1:
-                jTextField10.setText(String.valueOf(nota1.getnameClass()));
-                jTextField11.setText(String.valueOf(nota1.getpitchClass()));
-                jTextField12.setText(nota1.getNote());
-                jTextField1.setText(String.valueOf(nota1.getnameClass()));
+                break;
             case 2:
                 jTextField10.setText(String.valueOf(nota1.getnameClass()));
                 jTextField11.setText(String.valueOf(nota1.getpitchClass()));
@@ -433,6 +453,7 @@ public class Keyboard extends javax.swing.JFrame {
                 jTextField13.setText(String.valueOf(nota2.getpitchClass()));
                 jTextField14.setText(String.valueOf(nota2.getNote()));
                 jTextField15.setText(String.valueOf(nota2.getnameClass()));
+                jDialog1.setVisible(true);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -546,12 +567,23 @@ public class Keyboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField12ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        nota1.setNote(jTextField12.getText());
-        jTextField11.setText(Integer.toString(nota1.getpitchClass()));
-        jTextField10.setText(Integer.toString(nota1.getnameClass()));
-        nota2.setNote(jTextField14.getText());
+            nota1.setPc(jTextField11.getText());
+            nota1.setNc(jTextField10.getText());
+            jTextField12.setText(nota1.getNote());
+            jTextField11.setText(String.valueOf(nota1.getpitchClass()));
+            jTextField10.setText(String.valueOf(nota1.getnameClass()));
+            //nota 2
+            nota2.setPc(jTextField13.getText());
+            nota1.setNc(jTextField9.getText());
+            jTextField14.setText(nota2.getNote());
+            jTextField13.setText(String.valueOf(nota2.getpitchClass()));
+            jTextField9.setText(String.valueOf(nota2.getnameClass()));
     }//GEN-LAST:event_jButton2ActionPerformed
-    
+
+    private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField11ActionPerformed
+
     private int checkingStatusOfNotes(){
         if(nota1.isNotaVuota()){
             return 0;
@@ -563,11 +595,11 @@ public class Keyboard extends javax.swing.JFrame {
             return 2;
         }
     }
-    
+
     private int getjComboBoxItemOctave(){
-        return Integer.parseInt((String) jComboBox4.getSelectedItem()); 
+        return Integer.parseInt((String) jComboBox4.getSelectedItem());
     }
-    
+
     private int getjComboBoxItemDur(){
         return jComboBox3.getSelectedIndex();
     }
@@ -578,7 +610,7 @@ public class Keyboard extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {

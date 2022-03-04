@@ -256,6 +256,10 @@ public class Note {
         return note_str;
     }
     
+    public String getNoteBr(int nc, int pc){
+        return br_notes[nc][pc];
+    }
+    
     // Controlli booleani
     public boolean isNotaVuota(){
         return pc == -1 && dur == durata.INTERO && oct == ottava.CINQUE && note_str.equals("") && nc == -1;
@@ -266,13 +270,21 @@ public class Note {
         return pitch_class.containsKey(nota);
     }
     
+    public boolean isPcValid(String pc){
+        return pitch_class.containsValue(pc);
+    }
+    
+    public boolean isNcValid(String nc){
+        return name_class.containsValue(nc);
+    }
+    
     //Setters
-    public void setNc(String nota){
+    public void setNcNote(String nota){
         if(isNoteValid(nota))
             nc = Integer.parseInt(name_class.get(nota));
     }
     
-    public void setPc(String nota){
+    public void setPcNote(String nota){
         if(isNoteValid(nota))
             pc = Integer.parseInt(pitch_class.get(nota));
     }
@@ -280,8 +292,25 @@ public class Note {
     public void setNote(String nota){
         if(isNoteValid(nota)){
             note_str = nota;
-            setPc(nota);
-            setNc(nota);
+            setPcNote(nota);
+            setNcNote(nota);
         }
     }
+    
+    public void setPc(String pc){
+        if(isPcValid(pc)){
+            setNote(this.getNoteBr(nc, Integer.parseInt(pc)));
+        }
+    }
+    
+    public void setNc(String nc){
+        if(isNcValid(nc)){
+            setNote(this.getNoteBr(Integer.parseInt(nc), pc));
+        }
+    }
+    
+    public void setNoteBr(int nc, int pc){
+        this.note_str = br_notes[nc][pc];
+    }
+    
 }
