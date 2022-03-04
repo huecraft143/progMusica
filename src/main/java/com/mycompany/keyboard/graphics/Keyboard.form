@@ -116,6 +116,9 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField12ActionPerformed"/>
               </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jTextField12.getDocument().addDocumentListener(new DocumentListener() {&#xa;  public void changedUpdate(DocumentEvent e) {&#xa;    warn();&#xa;  }&#xa;  public void removeUpdate(DocumentEvent e) {&#xa;    warn();&#xa;  }&#xa;  public void insertUpdate(DocumentEvent e) {&#xa;    warn();&#xa;  }&#xa;&#xa;  public void warn(){&#xa;        nota1.setNote(jTextField12.getText());&#xa;        jTextField11.setText(Integer.toString(nota1.getpitchClass()));&#xa;        jTextField10.setText(Integer.toString(nota1.getnameClass()));&#xa;  } &#xa;&#xa;});"/>
+              </AuxValues>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="130" y="60" width="80" height="-1"/>

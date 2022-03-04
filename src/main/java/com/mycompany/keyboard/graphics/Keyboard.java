@@ -7,6 +7,8 @@ package com.mycompany.keyboard.graphics;
 import com.mycompany.keyboard.utils.Note;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 
 /**
  *
@@ -110,6 +112,24 @@ public class Keyboard extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 80, -1));
+        jTextField12.getDocument().addDocumentListener(new DocumentListener() {
+            public void changedUpdate(DocumentEvent e) {
+                warn();
+            }
+            public void removeUpdate(DocumentEvent e) {
+                warn();
+            }
+            public void insertUpdate(DocumentEvent e) {
+                warn();
+            }
+
+            public void warn(){
+                nota1.setNote(jTextField12.getText());
+                jTextField11.setText(Integer.toString(nota1.getpitchClass()));
+                jTextField10.setText(Integer.toString(nota1.getnameClass()));
+            }
+
+        });
 
         jDialog1.getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 230, 170));
 
@@ -529,6 +549,7 @@ public class Keyboard extends javax.swing.JFrame {
         nota1.setNote(jTextField12.getText());
         jTextField11.setText(Integer.toString(nota1.getpitchClass()));
         jTextField10.setText(Integer.toString(nota1.getnameClass()));
+        nota2.setNote(jTextField14.getText());
     }//GEN-LAST:event_jButton2ActionPerformed
     
     private int checkingStatusOfNotes(){
