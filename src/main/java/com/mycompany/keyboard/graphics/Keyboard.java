@@ -44,6 +44,8 @@ public class Keyboard extends javax.swing.JFrame {
         jTextField10 = new javax.swing.JTextField();
         jTextField11 = new javax.swing.JTextField();
         jTextField12 = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -53,6 +55,8 @@ public class Keyboard extends javax.swing.JFrame {
         jTextField13 = new javax.swing.JTextField();
         jTextField14 = new javax.swing.JTextField();
         jTextField15 = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
@@ -99,8 +103,8 @@ public class Keyboard extends javax.swing.JFrame {
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        jLabel8.setText("Name Class");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
+        jLabel8.setText("Durata");
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
         jPanel2.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, 80, -1));
 
         jTextField11.addActionListener(new java.awt.event.ActionListener() {
@@ -135,6 +139,11 @@ public class Keyboard extends javax.swing.JFrame {
 
         });
 
+        jLabel14.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jLabel14.setText("Ottava");
+        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
+        jPanel2.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 80, -1));
+
         jDialog1.getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 230, 170));
 
         jPanel3.setMinimumSize(new java.awt.Dimension(50, 50));
@@ -154,7 +163,7 @@ public class Keyboard extends javax.swing.JFrame {
         jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
 
         jLabel12.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        jLabel12.setText("Name Class");
+        jLabel12.setText("Ottava");
         jPanel3.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
         jPanel3.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, 80, -1));
         jPanel3.add(jTextField13, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, 80, -1));
@@ -178,6 +187,11 @@ public class Keyboard extends javax.swing.JFrame {
 
         });
         jPanel3.add(jTextField15, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 80, -1));
+
+        jLabel15.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jLabel15.setText("Durata");
+        jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
+        jPanel3.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 80, -1));
 
         jDialog1.getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 60, 260, 170));
 
@@ -445,12 +459,14 @@ public class Keyboard extends javax.swing.JFrame {
                 jTextField10.setText(String.valueOf(nota1.getnameClass()));
                 jTextField11.setText(String.valueOf(nota1.getpitchClass()));
                 jTextField12.setText(nota1.getNote());
-                jTextField1.setText(String.valueOf(nota1.getnameClass()));
+                jTextField1.setText(String.valueOf(nota1.getOct()));
+                jTextField2.setText("1/" + String.valueOf(nota1.getDur()));
                 //Inserisco nota 2
                 jTextField9.setText(String.valueOf(nota2.getnameClass()));
                 jTextField13.setText(String.valueOf(nota2.getpitchClass()));
                 jTextField14.setText(String.valueOf(nota2.getNote()));
-                jTextField15.setText(String.valueOf(nota2.getnameClass()));
+                jTextField15.setText(String.valueOf(nota2.getOct()));
+                jTextField3.setText("1/" + String.valueOf(nota2.getDur()));
                 jDialog1.setVisible(true);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -568,16 +584,25 @@ public class Keyboard extends javax.swing.JFrame {
             nota1.setPc(jTextField11.getText());
             nota1.setNc(jTextField10.getText());
             nota1.setNoteBr(nota1.getnameClass(), nota1.getpitchClass());
+            nota1.setOct(Integer.parseInt(jTextField1.getText()));
+            nota1.setDur(jTextField2.getText());
             jTextField12.setText(nota1.getNote());
             jTextField11.setText(String.valueOf(nota1.getpitchClass()));
             jTextField10.setText(String.valueOf(nota1.getnameClass()));
+            //In realtà non servono, ma ripuliscono un eventuale input rotto e servono da debug
+            jTextField1.setText(String.valueOf(nota1.getOct()));
+            jTextField2.setText("1/" + String.valueOf(nota1.getDur()));
             //nota 2
             nota2.setPc(jTextField13.getText());
             nota2.setNc(jTextField9.getText());
             nota2.setNoteBr(nota2.getnameClass(), nota2.getpitchClass());
+            nota2.setOct(Integer.parseInt(jTextField15.getText()));
+            nota2.setDur(jTextField3.getText());
             jTextField14.setText(nota2.getNote());
             jTextField13.setText(String.valueOf(nota2.getpitchClass()));
             jTextField9.setText(String.valueOf(nota2.getnameClass()));
+            jTextField15.setText(String.valueOf(nota2.getOct()));
+            jTextField3.setText("1/" + String.valueOf(nota2.getDur()));
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
@@ -661,6 +686,8 @@ public class Keyboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -678,6 +705,8 @@ public class Keyboard extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField15;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
 }

@@ -7,6 +7,7 @@ package com.mycompany.keyboard.utils;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.lang.Math;
 /**
  *
  * @author mattiapalano
@@ -199,7 +200,7 @@ public class Note {
     }};
     
     private enum durata{
-       INTERO, META, QUARTO, SEDICESIMO, TRENTADUESIMO, SESSANTAQUATTRESIMO;
+       INTERO, META, QUARTO, OTTAVO, SEDICESIMO, TRENTADUESIMO, SESSANTAQUATTRESIMO;
     }
     
     private enum ottava{
@@ -209,9 +210,9 @@ public class Note {
     
     //C'è effettivamente qualcosa di final?
     
-    private final durata dur;
+    private durata dur;
     
-    private final ottava oct;
+    private ottava oct;
     
     private int pc, nc; //pitch class, name class 
     
@@ -252,6 +253,14 @@ public class Note {
         return (int)(oct.ordinal() * 12) + pc;
     }
     
+    public int getOct(){
+        return this.oct.ordinal();
+    }
+    
+    public int getDur(){
+        return (int) Math.pow(2, dur.ordinal());
+    }
+    
     public String getNote(){
         return note_str;
     }
@@ -279,6 +288,38 @@ public class Note {
     }
     
     //Setters
+    public void setDur(String dur){
+        try{
+        switch (dur.substring(2)){
+            case "1":
+                this.dur = durata.INTERO;
+                break;
+            case "2":
+                this.dur = durata.META;
+                break;
+            case "4":
+                this.dur = durata.QUARTO;
+                break;
+            case "8":
+                this.dur = durata.OTTAVO;
+                break;
+            case "16":
+                this.dur = durata.SEDICESIMO;
+                break;
+            case "32":
+                this.dur = durata.TRENTADUESIMO;
+                break;
+            case "64":
+                this.dur = durata.SESSANTAQUATTRESIMO;
+                break;
+        }
+        System.out.println(this.dur.ordinal());
+        }
+        catch(Exception e){
+        
+        }
+    }
+    
     public void setNcNote(String nota){
         if(isNoteValid(nota))
             nc = Integer.parseInt(name_class.get(nota));
@@ -300,6 +341,15 @@ public class Note {
     public void setPc(String pc){
         if(isPcValid(pc)){
             this.pc = Integer.parseInt(pc);
+        }
+    }
+    
+    public void setOct(int ott){
+        try{
+            this.oct = ottava.values()[ott];
+        }
+        catch(Exception e){
+        
         }
     }
     
